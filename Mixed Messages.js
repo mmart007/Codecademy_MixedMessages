@@ -1,4 +1,6 @@
-const greeting = () => {
+const fullMsg = {
+ userName: 'John',
+ greeting() {
     const rnum = Math.floor(Math.random()*4)
     switch (rnum){
        case 0:
@@ -17,12 +19,29 @@ const greeting = () => {
            console.log('Check your random!')
            break;
     }
-}
+},
 
-const apt = (userNum = Math.floor(Math.random()*24)) => {
+ apt(userNum = Math.floor(Math.random()*24)){
     console.log(`Your appointment is at ${userNum}:00`)
+},
+
+ meds(dx = "Schizophrenia") {
+    switch (dx){
+        case 'Schizophrenia':
+            console.log('Antipsychotics');
+            break;
+        case 'Depression':
+            console.log('Happy pills');
+            break;
+        case 'Anxiety':
+            console.log('Meditation');
+            break;
+        default:
+            console.log('I\'m not sure I can help you if you can\'t tell me a real diagnosis');
+    }
+}
 }
 
-
-greeting();
-apt();
+console.log(fullMsg.userName);
+fullMsg.greeting();
+fullMsg.meds();
