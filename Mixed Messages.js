@@ -19,4 +19,10 @@ const greeting = () => {
     }
 }
 
+const apt = (userNum = Math.floor(Math.random()*24)) => {
+    console.log(`Your appointment is at ${userNum}:00`)
+}
+
+
 greeting();
+apt();
