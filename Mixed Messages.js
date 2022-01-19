@@ -1,45 +1,19 @@
 const fullMsg = {
  userName: 'John',
- greeting() {
-    const rnum = Math.floor(Math.random()*4)
-    switch (rnum){
-       case 0:
-           return 'Yo!'
-           break;
-       case 1:
-           return 'Hola!';
-           break;
-       case 2:
-           return 'Cheese man in the house';
-           break;
-       case 3:
-           return 'Allo.';
-           break;
-       default:
-           return 'Check your random!';
-           break;
-    }
-},
-
- apt(userNum = Math.floor(Math.random()*24)){
-    return `Your appointment is at ${userNum}:00`
-},
-
- meds(dx = "Schizophrenia") {
-    switch (dx){
-        case 'Schizophrenia':
-            return 'Antipsychotics';
-            break;
-        case 'Depression':
-            return 'Happy pills';
-            break;
-        case 'Anxiety':
-            return 'Meditation';
-            break;
-        default:
-            return 'I\'m not sure I can help you if you can\'t tell me a real diagnosis';
+ greetings: ['Yo', 'Hola', 'Bonjour', 'Hi'],
+ treatments: ['antipsychotic','prozac','a happy pill','meditation'],
+ diagnoses: ['schizophrenia','compulsive complaining','code addiction'],
+ nextApt(){
+    const hour = Math.floor(Math.random()*24)
+    const min = Math.floor(Math.random()*59)
+    return `Your next appointment is at ${hour}:${min}.`
+ },   
+ msg() {
+    const greet = this.greetings[Math.floor(Math.random()*this.greetings.length)];
+    const med = this.treatments[Math.floor(Math.random()*this.treatments.length)];
+    const dx = this.diagnoses[Math.floor(Math.random()*this.diagnoses.length)]
+    return `${greet} ${this.userName}. I suggest ${med} for your ${dx}.`
     }
 }
-}
 
-console.log(`${fullMsg.greeting()} ${fullMsg.userName}. ${fullMsg.meds('Schizophrenia')} are recommended. ${fullMsg.apt()} `)
+console.log(`${fullMsg.msg()} ${fullMsg.nextApt()}`)
